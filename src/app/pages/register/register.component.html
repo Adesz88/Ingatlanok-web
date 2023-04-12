@@ -1,0 +1,24 @@
+<mat-card>
+  <div>
+    <mat-form-field>
+      <mat-label>Email cím</mat-label>
+      <input matInput required type="email" [formControl]="email">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Telefonszám</mat-label>
+      <input matInput required type="tel" [formControl]="phone">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Jelszó</mat-label>
+      <input matInput required type="password" [formControl]="password">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Jelszó megerősítése</mat-label>
+      <input matInput required type="password" [formControl]="repassword">
+    </mat-form-field>
+    <div>
+      <button mat-raised-button color="primary" (click)="register()">Regisztráció</button>
+      <button mat-raised-button color="secondary" [routerLink]="'/login'">Bejelentkezés</button>
+    </div>
+  </div>
+</mat-card>

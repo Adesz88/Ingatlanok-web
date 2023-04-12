@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "ingatlanok-web": {
+      "hosting": {
+        "Ingatlanok-web": [
+          "ingatlanok-web"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "ingatlanok-web"
+  }
+}
