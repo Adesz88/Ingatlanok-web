@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class MainComponent {
   properties: Array<number> = new Array<number>(1, 2, 3, 4);
+
+  constructor() {
+    localStorage.setItem("test", "test");
+  }
 }
