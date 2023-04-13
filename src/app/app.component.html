@@ -1,6 +1,6 @@
 <mat-sidenav-container>
   <mat-sidenav>
-    <app-menu></app-menu>
+    <app-menu [loggedInUser]="loggedInUser"></app-menu>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -27,9 +27,8 @@
             </button>
 
             <mat-menu #userMenu="matMenu">
-              <button mat-menu-item routerLink="/login">Bejelentkezés</button>
-              <button>Hírdetéseim</button>
-              <button mat-menu-item (click)="logout()">Kilépés</button>
+              <button *ngIf="!loggedInUser" mat-menu-item routerLink="/login">Bejelentkezés</button>
+              <button *ngIf="loggedInUser" mat-menu-item (click)="logout()">Kilépés</button>
             </mat-menu>
           </li>
         </ul>

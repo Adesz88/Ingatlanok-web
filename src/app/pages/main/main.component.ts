@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {ListingService} from "../../shared/services/listing.service";
+import {Listing} from "../../shared/models/Listing";
 
 @Component({
   selector: 'app-main',
@@ -6,9 +8,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent {
-  properties: Array<number> = new Array<number>(1, 2, 3, 4);
+  listings: Array<Listing> = [];
 
-  constructor() {
-    localStorage.setItem("test", "test");
+  constructor(private listingService: ListingService) {
+    this.listingService.getAll().subscribe(listings => {
+      this.listings = listings;
+    });
   }
 }

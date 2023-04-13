@@ -1,1 +1,14 @@
-<p>menu works!</p>
+<mat-nav-list>
+  <a mat-list-item routerLink="/main">
+    <mat-icon>collections</mat-icon>
+    <span>Hírdetések</span>
+  </a>
+  <a *ngIf="!loggedInUser" mat-list-item routerLink="/login">
+    <mat-icon>collections</mat-icon>
+    <span>Bejelentkezés</span>
+  </a>
+  <a *ngIf="loggedInUser" mat-list-item>
+    <mat-icon>collections</mat-icon>
+    <span>Kilépés</span>
+  </a>
+</mat-nav-list>
