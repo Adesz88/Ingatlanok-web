@@ -17,6 +17,7 @@ export class LoginComponent {
     if (this.email.value != null && this.password.value != null){
       this.authService.login(this.email.value, this.password.value).then(cred => {
         console.log(cred);
+        this.router.navigateByUrl("/main");
       }).catch(err => {
         console.error(err);
       });

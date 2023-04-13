@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MainRoutingModule } from './main-routing.module';
 import { MainComponent } from './main.component';
 import {MatCardModule} from "@angular/material/card";
+import {MatGridListModule} from "@angular/material/grid-list";
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import {MatCardModule} from "@angular/material/card";
     imports: [
         CommonModule,
         MainRoutingModule,
-        MatCardModule
+        MatCardModule,
+        MatGridListModule
     ]
 })
 export class MainModule { }

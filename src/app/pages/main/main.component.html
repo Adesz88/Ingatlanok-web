@@ -1,6 +1,29 @@
-<mat-card>
-  <mat-card *ngFor="let listing of listings">
-    <p>{{listing.name}}</p>
+<!--<mat-grid-list cols="4" rowHeight="2:1">
+  <mat-grid-tile *ngFor="let listing of listings" class="listing_card">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{listing.name}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="assets/no_image.jpeg">
+      <mat-card-content>
+        <p>{{listing.city}} {{listing.street}}</p>
+        <p>{{listing.size}} m2</p>
+        <p>{{listing.price}} M Ft</p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>-->
+
+<div *ngFor="let listing of listings" class="listing_card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{listing.name}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image src="assets/no_image.jpeg">
+    <mat-card-content>
+      <p>{{listing.city}} {{listing.street}}</p>
+      <p>{{listing.size}} m2</p>
+      <p>{{listing.price}} M Ft</p>
+    </mat-card-content>
   </mat-card>
-</mat-card>
-<p>main works!</p>
+</div>
