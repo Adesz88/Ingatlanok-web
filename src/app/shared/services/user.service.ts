@@ -13,6 +13,15 @@ export class UserService {
     return this.afs.collection<User>(this.collectionName).doc(user.id).set(user);
   }
 
+  get(id: string) {
+    return this.afs.collection<User>(this.collectionName).doc(id).valueChanges();
+  }
+
+  getByEmail(email: string) {
+    return this.afs.collection<User>(this.collectionName,
+        ref => ref.where("email", "==", email)).valueChanges();
+  }
+
   getAll() {
 
   }

@@ -14,8 +14,8 @@ export class ListingService {
 
   }
 
-  get() {
-
+  get(id: string) {
+    return this.afs.collection<Listing>(this.collectionName).doc(id).valueChanges();
   }
 
   getAll() {

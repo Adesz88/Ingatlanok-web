@@ -1,0 +1,16 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{listing?.name}}</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image [src]="listing?.imageURL">
+  <mat-card-content>
+    <p>Ár: {{listing?.price}} M Ft</p>
+    <p>{{listing?.city}}, {{listing?.street}}</p>
+    <p>Alapterület: {{listing?.size}} m2</p>
+    <p>Szobák száma: {{listing?.rooms}}</p>
+    <p>Fűtés: {{listing?.heating}}</p>
+    <p>Leírás:</p>
+    <p>{{listing?.description}}</p>
+    <p>{{user?.name?.lastname}}</p>
+  </mat-card-content>
+</mat-card>
