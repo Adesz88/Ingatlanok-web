@@ -9,10 +9,16 @@ import {Router} from "@angular/router";
 })
 export class ListingCardsComponent {
   @Input() listings?: Array<Listing>;
+  @Input() edit?: boolean;
 
   constructor(private router: Router) { }
 
   showDetails(id: string) {
-    this.router.navigateByUrl("/listing?id=" + id);
+    if (this.edit) {
+      this.router.navigateByUrl("/add-edit-listing?id=" + id);
+    } else {
+      this.router.navigateByUrl("/listing?id=" + id);
+    }
+
   }
 }

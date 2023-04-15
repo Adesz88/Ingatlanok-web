@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-header>Hozzáadás</mat-card-header>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-label>Hírdetés címe</mat-label>
+      <input matInput required type="text" [formControl]="title">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Ár (M Ft)</mat-label>
+      <input matInput required type="number" [formControl]="price">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Város</mat-label>
+      <input matInput required type="text" [formControl]="city">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Utca</mat-label>
+      <input matInput required type="text" [formControl]="street">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Alapterület (m2)</mat-label>
+      <input matInput required type="number" [formControl]="size">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Fűtés</mat-label>
+      <input matInput required type="text" [formControl]="heating">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Leírás</mat-label>
+      <textarea matInput required [formControl]="description"></textarea>
+    </mat-form-field>
+  </mat-card-content>
+</mat-card>
