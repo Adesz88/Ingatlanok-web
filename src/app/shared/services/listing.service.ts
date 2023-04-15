@@ -18,6 +18,11 @@ export class ListingService {
     return this.afs.collection<Listing>(this.collectionName).doc(id).valueChanges();
   }
 
+  getByUser(email: string) {
+    return this.afs.collection<Listing>(this.collectionName,
+        ref => ref.where("user", "==", email)).valueChanges();
+  }
+
   getAll() {
     return this.afs.collection<Listing>(this.collectionName).valueChanges();
   }

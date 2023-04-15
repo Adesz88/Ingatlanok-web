@@ -28,6 +28,7 @@
 
             <mat-menu #userMenu="matMenu">
               <button *ngIf="!loggedInUser" mat-menu-item routerLink="/login">Bejelentkezés</button>
+              <button *ngIf="loggedInUser" mat-menu-item routerLink="/my-account">Hírdetéseim</button>
               <button *ngIf="loggedInUser" mat-menu-item (click)="logout()">Kilépés</button>
             </mat-menu>
           </li>

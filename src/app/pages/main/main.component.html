@@ -13,17 +13,5 @@
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>-->
+<app-listing-cards [listings]="listings"></app-listing-cards>
 
-<div *ngFor="let listing of listings" class="listing_card">
-  <mat-card (click)="showDetails(listing.id)">
-    <mat-card-header>
-      <mat-card-title>{{listing.name}}</mat-card-title>
-    </mat-card-header>
-    <img mat-card-image [src]="listing.imageURL">
-    <mat-card-content>
-      <p>{{listing.city}} {{listing.street}}</p>
-      <p>{{listing.size}} m2</p>
-      <p>{{listing.price}} M Ft</p>
-    </mat-card-content>
-  </mat-card>
-</div>

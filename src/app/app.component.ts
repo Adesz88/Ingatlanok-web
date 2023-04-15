@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {AuthService} from "./shared/services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,7 @@ export class AppComponent {
   title = 'Ingatlanok-web';
   loggedInUser?: firebase.default.User | null;
 
-  constructor(private authService: AuthService) {
+  constructor(private router: Router, private authService: AuthService) {
   }
 
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class AppComponent {
   logout() {
     this.authService.logout().then(() => {
       console.log('Logged out successfully');
+      this.router.navigateByUrl("/main");
     }).catch(error => {
       console.error(error);
     });

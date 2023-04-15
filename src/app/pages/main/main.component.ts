@@ -10,15 +10,10 @@ import {Router} from "@angular/router";
 })
 export class MainComponent {
   listings: Array<Listing> = [];
-  image?: string;
 
   constructor(private router: Router, private listingService: ListingService) {
     this.listingService.getAll().subscribe(listings => {
       this.listings = listings;
     });
-  }
-
-  showDetails(id: string) {
-    this.router.navigateByUrl("/listing?id=" + id);
   }
 }
