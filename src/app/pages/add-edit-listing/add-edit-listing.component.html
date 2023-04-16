@@ -1,42 +1,62 @@
-<mat-card>
-  <mat-card-header>Hozzáadás</mat-card-header>
-  <mat-card-content>
-    <mat-form-field>
-      <mat-label>Hírdetés címe</mat-label>
-      <input matInput required type="text" [formControl]="title">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Ár (M Ft)</mat-label>
-      <input matInput required type="number" [formControl]="price">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Város</mat-label>
-      <input matInput required type="text" [formControl]="city">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Utca</mat-label>
-      <input matInput required type="text" [formControl]="street">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Alapterület (m2)</mat-label>
-      <input matInput required type="number" [formControl]="size">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Szobák száma</mat-label>
-      <input matInput required type="number" [formControl]="rooms">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Fűtés</mat-label>
-      <input matInput required type="text" [formControl]="heating">
-    </mat-form-field>
-    <mat-form-field>
-      <mat-label>Leírás</mat-label>
-      <textarea matInput required [formControl]="description"></textarea>
-    </mat-form-field>
-  </mat-card-content>
-  <mat-card-actions>
-    <button *ngIf="id" mat-raised-button color="primary" (click)="updateListing()">Módosítás</button>
-    <button *ngIf="id === undefined" mat-raised-button color="primary" (click)="addListing()">Feltöltés</button>
-    <button mat-raised-button color="secondary" routerLink="/my-account">Mégsem</button>
-  </mat-card-actions>
-</mat-card>
+<div class="form_card">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Hozzáadás</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div>
+        <mat-form-field class="fill_horizontal">
+          <mat-label>Hírdetés címe</mat-label>
+          <input matInput required type="text" [formControl]="title">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fill_horizontal">
+          <mat-label>Ár (M Ft)</mat-label>
+          <input matInput required type="number" [formControl]="price">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fill_horizontal">
+          <mat-label>Város</mat-label>
+          <input matInput required type="text" [formControl]="city">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fill_horizontal">
+          <mat-label>Utca</mat-label>
+          <input matInput required type="text" [formControl]="street">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fill_horizontal">
+          <mat-label>Alapterület (m2)</mat-label>
+          <input matInput required type="number" [formControl]="size">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fill_horizontal">
+          <mat-label>Szobák száma</mat-label>
+          <input matInput required type="number" [formControl]="rooms">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fill_horizontal">
+          <mat-label>Fűtés</mat-label>
+          <input matInput required type="text" [formControl]="heating">
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="fill_horizontal">
+          <mat-label>Leírás</mat-label>
+          <textarea rows="6" matInput required [formControl]="description"></textarea>
+        </mat-form-field>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button *ngIf="id" mat-raised-button color="primary" (click)="updateListing()" class="button_margin">Módosítás</button>
+      <button *ngIf="id === undefined" mat-raised-button color="primary" (click)="addListing()" class="button_margin">Feltöltés</button>
+      <button mat-raised-button color="secondary" routerLink="/my-account" class="button_margin">Mégsem</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
