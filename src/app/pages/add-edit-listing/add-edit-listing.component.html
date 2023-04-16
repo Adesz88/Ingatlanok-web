@@ -22,6 +22,10 @@
       <input matInput required type="number" [formControl]="size">
     </mat-form-field>
     <mat-form-field>
+      <mat-label>Szobák száma</mat-label>
+      <input matInput required type="number" [formControl]="rooms">
+    </mat-form-field>
+    <mat-form-field>
       <mat-label>Fűtés</mat-label>
       <input matInput required type="text" [formControl]="heating">
     </mat-form-field>
@@ -30,4 +34,9 @@
       <textarea matInput required [formControl]="description"></textarea>
     </mat-form-field>
   </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="id" mat-raised-button color="primary" (click)="updateListing()">Módosítás</button>
+    <button *ngIf="id === undefined" mat-raised-button color="primary" (click)="addListing()">Feltöltés</button>
+    <button mat-raised-button color="secondary" routerLink="/my-account">Mégsem</button>
+  </mat-card-actions>
 </mat-card>

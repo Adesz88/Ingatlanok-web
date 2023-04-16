@@ -5,6 +5,8 @@ import { ListingCardsRoutingModule } from './listing-cards-routing.module';
 import { ListingCardsComponent } from './listing-cards.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatRippleModule} from "@angular/material/core";
+import {MatButtonModule} from "@angular/material/button";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import {MatRippleModule} from "@angular/material/core";
     CommonModule,
     ListingCardsRoutingModule,
     MatCardModule,
-    MatRippleModule
+    MatRippleModule,
+    MatButtonModule,
+    MatIconModule
   ]
 })
 export class ListingCardsModule { }

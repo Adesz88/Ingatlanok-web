@@ -1,6 +1,7 @@
 import {Component, Input} from '@angular/core';
 import {Listing} from "../../shared/models/Listing";
 import {Router} from "@angular/router";
+import {ListingService} from "../../shared/services/listing.service";
 
 @Component({
   selector: 'app-listing-cards',
@@ -9,16 +10,25 @@ import {Router} from "@angular/router";
 })
 export class ListingCardsComponent {
   @Input() listings?: Array<Listing>;
-  @Input() edit?: boolean;
+  @Input() edit: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private listingService: ListingService) { }
 
   showDetails(id: string) {
-    if (this.edit) {
-      this.router.navigateByUrl("/add-edit-listing?id=" + id);
-    } else {
-      this.router.navigateByUrl("/listing?id=" + id);
-    }
+    this.router.navigateByUrl("/listing?id=" + id);
+  }
 
+  none() { }
+
+  editListing(id: string) {
+    this.router.navigateByUrl("/add-edit-listing?id=" + id);
+  }
+
+  deleteListing(id: string) {
+    this.listingService.delete(id).then(_ => {
+      this.router.navigateByUrl("/my-account");
+    }).catch(error => {
+      console.error(error);
+    });
   }
 }

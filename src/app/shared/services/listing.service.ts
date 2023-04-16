@@ -10,8 +10,9 @@ export class ListingService {
 
   constructor(private afs: AngularFirestore) { }
 
-  create() {
-
+  create(listing: Listing) {
+    listing.id = this.afs.createId();
+    return this.afs.collection<Listing>(this.collectionName).doc(listing.id).set(listing);
   }
 
   get(id: string) {
@@ -27,11 +28,11 @@ export class ListingService {
     return this.afs.collection<Listing>(this.collectionName).valueChanges();
   }
 
-  update() {
-
+  update(listing: Listing) {
+    return this.afs.collection<Listing>(this.collectionName).doc(listing.id).set(listing);
   }
 
-  delete() {
-
+  delete(id: string) {
+    return this.afs.collection<Listing>(this.collectionName).doc(id).delete();
   }
 }

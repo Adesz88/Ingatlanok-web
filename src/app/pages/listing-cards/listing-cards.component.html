@@ -1,5 +1,6 @@
 <div *ngFor="let listing of listings" class="listing_card">
-  <mat-card (click)="showDetails(listing.id)" matRipple [matRippleCentered]="true">
+  <mat-card (click)="edit === false ? showDetails(listing.id) : none()" matRipple [matRippleDisabled]="edit"
+            [matRippleCentered]="true">
     <mat-card-header>
       <mat-card-title>{{listing.name}}</mat-card-title>
     </mat-card-header>
@@ -9,5 +10,11 @@
       <p>{{listing.size}} m2</p>
       <p>{{listing.price}} M Ft</p>
     </mat-card-content>
+    <mat-card-actions *ngIf="edit">
+      <div style="margin: auto">
+        <button mat-icon-button color="primary" (click)="editListing(listing.id)"><mat-icon>edit</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="deleteListing(listing.id)"><mat-icon>delete</mat-icon></button>
+      </div>
+    </mat-card-actions>
   </mat-card>
 </div>

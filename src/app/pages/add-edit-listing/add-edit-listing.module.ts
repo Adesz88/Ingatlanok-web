@@ -6,18 +6,20 @@ import { AddEditListingComponent } from './add-edit-listing.component';
 import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatButtonModule} from "@angular/material/button";
 
 
 @NgModule({
   declarations: [
     AddEditListingComponent
   ],
-  imports: [
-    CommonModule,
-    AddEditListingRoutingModule,
-    MatCardModule,
-    MatInputModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        AddEditListingRoutingModule,
+        MatCardModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        MatButtonModule
+    ]
 })
 export class AddEditListingModule { }
