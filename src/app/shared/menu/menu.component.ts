@@ -7,11 +7,15 @@ import {Component, EventEmitter, Input, Output} from '@angular/core';
 })
 export class MenuComponent {
   @Input() loggedInUser?: firebase.default.User | null;
-  @Output() OnLogout: EventEmitter<boolean> = new EventEmitter<boolean>()
+  @Output() onCloseSidenav: EventEmitter<boolean> = new EventEmitter();
+  @Output() onLogout: EventEmitter<boolean> = new EventEmitter();
   constructor() {
   }
 
-  /*close() {   menü logout 10.gyak videó kb 40-percnél
-    if (logo)
-  }*/
+  close(logout?: boolean) {
+    if (logout === true) {
+      this.onLogout.emit(logout)
+    }
+    this.onCloseSidenav.emit(true);
+  }
 }

@@ -1,12 +1,12 @@
 <mat-sidenav-container>
-  <mat-sidenav>
-    <app-menu [loggedInUser]="loggedInUser"></app-menu>
+  <mat-sidenav #sidenav>
+    <app-menu [loggedInUser]="loggedInUser" (onCloseSidenav)="onClose($event, sidenav)" (onLogout)="logout($event)"></app-menu>
   </mat-sidenav>
 
-  <mat-sidenav-content>
+  <mat-sidenav-content style="background: white">
     <mat-toolbar color="primary">
       <div fxHide.gt-xs>
-        <button mat-icon-button>
+        <button mat-icon-button (click)="onToggleSidenav(sidenav)">
           <mat-icon>menu</mat-icon>
         </button>
       </div>

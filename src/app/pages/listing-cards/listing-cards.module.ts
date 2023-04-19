@@ -7,6 +7,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatRippleModule} from "@angular/material/core";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {FlexModule} from "@angular/flex-layout";
 
 
 @NgModule({
@@ -16,13 +17,14 @@ import {MatIconModule} from "@angular/material/icon";
     exports: [
         ListingCardsComponent
     ],
-  imports: [
-    CommonModule,
-    ListingCardsRoutingModule,
-    MatCardModule,
-    MatRippleModule,
-    MatButtonModule,
-    MatIconModule
-  ]
+    imports: [
+        CommonModule,
+        ListingCardsRoutingModule,
+        MatCardModule,
+        MatRippleModule,
+        MatButtonModule,
+        MatIconModule,
+        FlexModule
+    ]
 })
 export class ListingCardsModule { }

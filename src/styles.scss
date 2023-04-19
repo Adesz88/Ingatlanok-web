@@ -1,11 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover, a:active {
+  color: lightgray;
+}
+
+.navigation-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.center_vertically {
+  height: 95vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .listing_card {
   padding: 20px;
-  max-width: 400px;
+  background: white;
 }
 
 .button_margin {
@@ -15,5 +36,23 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .fill_horizontal {
-  width: 100%;
+  width: 90%;
+}
+
+.form_card {
+  padding: 20px;
+  width: 80%;
+  margin: auto;
+}
+.card_title {
+  padding-bottom: 15px;
+}
+
+.listing_image {
+  width: 90%;
+  margin: auto;
+}
+
+mat-sidenav {
+  width: 250px;
 }

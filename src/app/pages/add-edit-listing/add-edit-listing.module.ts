@@ -7,6 +7,7 @@ import {MatCardModule} from "@angular/material/card";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
+import {FlexModule} from "@angular/flex-layout";
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import {MatButtonModule} from "@angular/material/button";
         MatCardModule,
         MatInputModule,
         ReactiveFormsModule,
-        MatButtonModule
+        MatButtonModule,
+        FlexModule
     ]
 })
 export class AddEditListingModule { }

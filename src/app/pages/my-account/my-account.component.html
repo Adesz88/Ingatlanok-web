@@ -1,5 +1,11 @@
-<p>my-account works!</p>
-<app-listing-cards [listings]="listings" [edit]="true"></app-listing-cards>
-<div>
-  <button mat-fab color="primary" (click)="addListing()"><mat-icon>add</mat-icon></button>
-</div>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title style="padding-top: 10px">Hírdetéseim</mat-card-title>
+    <span fxFlex fxLayout fxLayoutAlign="flex-end">
+       <button mat-fab color="primary" (click)="addListing()"><mat-icon>add</mat-icon></button>
+    </span>
+  </mat-card-header>
+  <mat-card-content>
+    <app-listing-cards [listings]="listings" [edit]="true"></app-listing-cards>
+  </mat-card-content>
+</mat-card>

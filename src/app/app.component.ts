@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {AuthService} from "./shared/services/auth.service";
 import {Router} from "@angular/router";
+import {MatSidenav} from "@angular/material/sidenav";
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,17 @@ export class AppComponent {
     });
   }
 
-  logout() {
+  onToggleSidenav(sidenav: MatSidenav) {
+    sidenav.toggle();
+  }
+
+  onClose(event: any, sidenav: MatSidenav) {
+    if (event === true) {
+      sidenav.close();
+    }
+  }
+
+  logout(_?: boolean) {
     this.authService.logout().then(() => {
       console.log('Logged out successfully');
       this.router.navigateByUrl("/main");
@@ -33,4 +44,6 @@ export class AppComponent {
       console.error(error);
     });
   }
+
+  protected readonly onclose = onclose;
 }

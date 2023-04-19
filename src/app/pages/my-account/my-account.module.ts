@@ -6,6 +6,8 @@ import { MyAccountComponent } from './my-account.component';
 import {ListingCardsModule} from "../listing-cards/listing-cards.module";
 import {MatButtonModule} from "@angular/material/button";
 import {MatIconModule} from "@angular/material/icon";
+import {MatCardModule} from "@angular/material/card";
+import {FlexModule} from "@angular/flex-layout";
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import {MatIconModule} from "@angular/material/icon";
     MyAccountRoutingModule,
     ListingCardsModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatCardModule,
+    FlexModule
   ]
 })
 export class MyAccountModule { }

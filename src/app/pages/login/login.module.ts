@@ -8,19 +8,21 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
+import {FlexModule} from "@angular/flex-layout";
 
 
 @NgModule({
   declarations: [
     LoginComponent
   ],
-  imports: [
-    CommonModule,
-    LoginRoutingModule,
-    MatCardModule,
-    MatButtonModule,
-    MatInputModule,
-    ReactiveFormsModule
-  ]
+    imports: [
+        CommonModule,
+        LoginRoutingModule,
+        MatCardModule,
+        MatButtonModule,
+        MatInputModule,
+        ReactiveFormsModule,
+        FlexModule
+    ]
 })
 export class LoginModule { }
