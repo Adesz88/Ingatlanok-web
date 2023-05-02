@@ -16,12 +16,15 @@ import {MatButtonModule} from "@angular/material/button";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { MenuComponent } from './shared/menu/menu.component';
 import {MatListModule} from "@angular/material/list";
+import { DateFormatPipe } from './shared/pipes/date-format.pipe';
+import {MatBadgeModule} from "@angular/material/badge";
+import {MainModule} from "./pages/main/main.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    MenuComponent
-  ],
+    declarations: [
+        AppComponent,
+        MenuComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -36,9 +39,11 @@ import {MatListModule} from "@angular/material/list";
     MatButtonModule,
     MatIconModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    MatBadgeModule,
+    MainModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

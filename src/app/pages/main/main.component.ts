@@ -10,8 +10,10 @@ import {Router} from "@angular/router";
 })
 export class MainComponent {
   listings: Array<Listing> = [];
+  date: Date;
 
   constructor(private router: Router, private listingService: ListingService) {
+    this.date = new Date();
     this.listingService.getAll().subscribe(listings => {
       this.listings = listings;
     });
