@@ -19,30 +19,32 @@ import {MatListModule} from "@angular/material/list";
 import { DateFormatPipe } from './shared/pipes/date-format.pipe';
 import {MatBadgeModule} from "@angular/material/badge";
 import {MainModule} from "./pages/main/main.module";
+import {MatExpansionModule} from "@angular/material/expansion";
 
 @NgModule({
     declarations: [
         AppComponent,
         MenuComponent
     ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage()),
-    MatSidenavModule,
-    MatToolbarModule,
-    FlexLayoutModule,
-    MatButtonModule,
-    MatIconModule,
-    MatMenuModule,
-    MatListModule,
-    MatBadgeModule,
-    MainModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        provideAuth(() => getAuth()),
+        provideFirestore(() => getFirestore()),
+        provideStorage(() => getStorage()),
+        MatSidenavModule,
+        MatToolbarModule,
+        FlexLayoutModule,
+        MatButtonModule,
+        MatIconModule,
+        MatMenuModule,
+        MatListModule,
+        MatBadgeModule,
+        MainModule,
+        MatExpansionModule
+    ],
     providers: [],
     bootstrap: [AppComponent]
 })

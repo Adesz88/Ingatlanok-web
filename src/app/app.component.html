@@ -1,6 +1,7 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav>
-    <app-menu [loggedInUser]="loggedInUser" (onCloseSidenav)="onClose($event, sidenav)" (onLogout)="logout($event)"></app-menu>
+    <app-menu [loggedInUser]="loggedInUser" [notifications]="notifications" (onCloseSidenav)="onClose($event, sidenav)"
+              (onLogout)="logout($event)" (onDelete)="delete()"></app-menu>
   </mat-sidenav>
 
   <mat-sidenav-content style="background: white">
@@ -20,19 +21,22 @@
 
       <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
         <ul fxLayout fxLayoutGap="5px" class="navigation-items">
-          <li>
+          <li *ngIf="loggedInUser">
             <button mat-button [mat-menu-trigger-for]="notificationMenu" style="margin-right: 5px">
               <mat-icon>notifications</mat-icon>
               <span [matBadge]="notifications.length" matBadgeColor="warn" matBadgeOverlap="false" [matBadgeHidden]="badgeHide">Értesítések</span>
             </button>
             <mat-menu #notificationMenu="matMenu">
-              <div *ngFor="let notification of notifications">
-                <div mat-menu-item style="background: #E9ECF8">
+              <span *ngFor="let notification of notifications">
+                <div [ngStyle]="{'background': isNew(notification) ? '#E9ECF8':''}">
+                <!--<div mat-menu-item style="background: #E9ECF8">-->
+                <div mat-menu-item>
                   <div>{{notification.description}}</div>
                   <div>{{notification.date | dateFormat}}</div>
                 </div>
                 <mat-divider></mat-divider>
               </div>
+              </span>
 
               <button mat-menu-item (click)="delete()">Törlés</button>
             </mat-menu>

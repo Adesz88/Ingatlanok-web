@@ -5,7 +5,7 @@
   </a>
 
   <a *ngIf="!loggedInUser" mat-list-item routerLink="/login" (click)="close()">
-    <mat-icon>login</mat-icon>
+    <mat-icon>loginnm,</mat-icon>
     <span>Bejelentkezés</span>
   </a>
 
@@ -18,4 +18,21 @@
     <mat-icon>logout</mat-icon>
     <span>Kilépés</span>
   </a>
+
+  <mat-expansion-panel *ngIf="loggedInUser">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Értesítések
+      </mat-panel-title>
+      <mat-panel-description>
+        <span [matBadge]="notifications?.length" matBadgeColor="warn" matBadgeOverlap="false" matBadgeSize="small" [matBadgeHidden]="badgeHide"></span>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div *ngFor="let notification of notifications" [ngStyle]="{'background': isNew(notification) ? '#E9ECF8':''}">
+      <div>{{notification.description}}</div>
+      <div>{{notification.date | dateFormat}}</div>
+      <mat-divider></mat-divider>
+    </div>
+    <button mat-button (click)="close(false, true)">Törlés</button>
+  </mat-expansion-panel>
 </mat-nav-list>

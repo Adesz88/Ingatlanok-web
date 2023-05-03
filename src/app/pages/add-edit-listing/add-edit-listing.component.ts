@@ -3,8 +3,8 @@ import {Router} from "@angular/router";
 import {FormControl} from "@angular/forms";
 import {ListingService} from "../../shared/services/listing.service";
 import {Listing} from "../../shared/models/Listing";
-import {error} from "@angular/compiler-cli/src/transformers/util";
 import {AuthService} from "../../shared/services/auth.service";
+import {NotificationService} from "../../shared/services/notification.service";
 
 @Component({
   selector: 'app-add-edit-listing',
@@ -24,7 +24,8 @@ export class AddEditListingComponent {
   id: string;
   listing?: Listing;
   loggedInUser?: firebase.default.User | null;
-  constructor(private router: Router, private listingService: ListingService, private authService: AuthService) {
+  constructor(private router: Router, private listingService: ListingService, private authService: AuthService,
+              private notificationService: NotificationService) {
     this.id = this.router.getCurrentNavigation()?.finalUrl?.queryParams["id"];
     this.authService.isUserLoggedIn().subscribe(user => {
       this.loggedInUser = user;
@@ -88,6 +89,7 @@ export class AddEditListingComponent {
       }
 
       this.listingService.create(this.listing).then(_ => {
+        this.notificationService.create("Új hírdetés: " + this.listing?.name + " - " + this.listing?.city);
         this.router.navigateByUrl("/my-account");
       }).catch(error => {
         console.log(error)
