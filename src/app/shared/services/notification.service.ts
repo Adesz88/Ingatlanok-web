@@ -18,8 +18,9 @@ export class NotificationService {
           description: description,
           id: this.afs.createId(),
           email: user.email,
-          date: new Date().toString()
+          date: new Date().toISOString()
         };
+        console.log(user.email);
 
         this.afs.collection<Notification>(this.collectionName).doc(notification.id).set(notification);
       }
@@ -30,7 +31,8 @@ export class NotificationService {
 
   getByUser(email: string) {
     return this.afs.collection<Notification>(this.collectionName,
-        ref => ref.where("email", "==", email)).valueChanges();
+        ref => ref.where("email", "==", email)
+          .orderBy('date', 'desc')).valueChanges();
   }
 
   delete(id: string) {

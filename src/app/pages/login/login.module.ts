@@ -9,6 +9,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MatButtonModule} from "@angular/material/button";
 import {MatInputModule} from "@angular/material/input";
 import {FlexModule} from "@angular/flex-layout";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {FlexModule} from "@angular/flex-layout";
         MatButtonModule,
         MatInputModule,
         ReactiveFormsModule,
-        FlexModule
+        FlexModule,
+        MatSnackBarModule
     ]
 })
 export class LoginModule { }

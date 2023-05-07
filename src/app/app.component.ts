@@ -23,37 +23,20 @@ export class AppComponent implements OnInit, DoCheck{
 
   ngOnInit(): void {
     this.authService.isUserLoggedIn().subscribe(user => {
-      console.log(user);
       this.loggedInUser = user;
       localStorage.setItem('user', JSON.stringify(this.loggedInUser));
 
-      this.notificationService.getByUser(this.loggedInUser?.email as string).subscribe(data => {
-        this.notifications = data;
-      }, error => {
-        console.log(error);
-      });
+      if (this.loggedInUser != null) {
+        this.notificationService.getByUser(this.loggedInUser?.email as string).subscribe(data => {
+          this.notifications = data;
+        }, error => {
+          console.log(error);
+        });
+      }
     }, error => {
       console.error(error);
       localStorage.setItem('user', JSON.stringify('null'));
     });
-
-    /*this.notifications[0] = {
-      description: "Eladó családi ház",
-      userId: 'jdkjds',
-      date: 'Tue May 02 2023 18:39:19 GMT+0200 (Central European Summer Time)'
-    };
-
-    this.notifications[1] = {
-      description: "13. kerületi tégla lakás",
-      userId: 'jdkjds',
-      date: 'Tue May 01 2023 18:39:19 GMT+0200 (Central European Summer Time)'
-    };
-
-    this.notifications[2] = {
-      description: "Eladó ikerház",
-      userId: 'jdkjds',
-      date: 'Tue May 02 2022 18:39:19 GMT+0200 (Central European Summer Time)'
-    };*/
   }
 
   ngDoCheck() {
@@ -98,6 +81,4 @@ export class AppComponent implements OnInit, DoCheck{
     }
     return false;
   }
-
-  protected readonly Date = Date;
 }

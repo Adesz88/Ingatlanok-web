@@ -25,7 +25,8 @@ export class ListingService {
   }
 
   getAll() {
-    return this.afs.collection<Listing>(this.collectionName).valueChanges();
+    return this.afs.collection<Listing>(this.collectionName,
+        ref => ref.orderBy('name', 'asc')).valueChanges();
   }
 
   update(listing: Listing) {

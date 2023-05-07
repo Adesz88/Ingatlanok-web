@@ -26,11 +26,4 @@ export class UserService {
     return this.afs.collection<User>(this.collectionName).valueChanges();
   }
 
-  update() {
-
-  }
-
-  delete() {
-
-  }
 }

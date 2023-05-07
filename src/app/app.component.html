@@ -24,12 +24,12 @@
           <li *ngIf="loggedInUser">
             <button mat-button [mat-menu-trigger-for]="notificationMenu" style="margin-right: 5px">
               <mat-icon>notifications</mat-icon>
-              <span [matBadge]="notifications.length" matBadgeColor="warn" matBadgeOverlap="false" [matBadgeHidden]="badgeHide">Értesítések</span>
+              <span [matBadge]="notifications.length" matBadgeColor="warn" matBadgeOverlap="false"
+                    [matBadgeHidden]="badgeHide">Értesítések</span>
             </button>
             <mat-menu #notificationMenu="matMenu">
               <span *ngFor="let notification of notifications">
                 <div [ngStyle]="{'background': isNew(notification) ? '#E9ECF8':''}">
-                <!--<div mat-menu-item style="background: #E9ECF8">-->
                 <div mat-menu-item>
                   <div>{{notification.description}}</div>
                   <div>{{notification.date | dateFormat}}</div>
@@ -43,7 +43,12 @@
           </li>
 
           <li>
-            <button mat-button [mat-menu-trigger-for]="userMenu">
+            <button *ngIf="loggedInUser" mat-button [mat-menu-trigger-for]="userMenu">
+              <mat-icon>account_circle</mat-icon>
+              {{loggedInUser.email}}
+            </button>
+
+            <button *ngIf="!loggedInUser" mat-button [mat-menu-trigger-for]="userMenu">
               <mat-icon>account_circle</mat-icon>
               Saját fiók
             </button>

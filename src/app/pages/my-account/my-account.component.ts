@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnDestroy} from '@angular/core';
 import {ListingService} from "../../shared/services/listing.service";
 import {Listing} from "../../shared/models/Listing";
 import {AuthService} from "../../shared/services/auth.service";
@@ -12,12 +12,16 @@ import {Router} from "@angular/router";
 export class MyAccountComponent {
   loggedInUser?: firebase.default.User | null;
   listings: Array<Listing> = [];
+
   constructor(private authService: AuthService, private listingService: ListingService, private router: Router) {
     this.authService.isUserLoggedIn().subscribe(user => {
       this.loggedInUser = user;
-      this.listingService.getByUser(user?.email as string).subscribe(listings => {
-        this.listings = listings;
-      });
+
+      if (this.loggedInUser != null) {
+        this.listingService.getByUser(user?.email as string).subscribe(listings => {
+          this.listings = listings;
+        });
+      }
     });
   }
 

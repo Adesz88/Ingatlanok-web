@@ -28,11 +28,13 @@
         <span [matBadge]="notifications?.length" matBadgeColor="warn" matBadgeOverlap="false" matBadgeSize="small" [matBadgeHidden]="badgeHide"></span>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <div *ngFor="let notification of notifications" [ngStyle]="{'background': isNew(notification) ? '#E9ECF8':''}">
+    <div *ngFor="let notification of notifications" [ngClass]="isNew(notification) ? 'new' : ''">
       <div>{{notification.description}}</div>
       <div>{{notification.date | dateFormat}}</div>
       <mat-divider></mat-divider>
     </div>
-    <button mat-button (click)="close(false, true)">Törlés</button>
+    <div style="text-align: center">
+      <button mat-button (click)="close(false, true)">Törlés</button>
+    </div>
   </mat-expansion-panel>
 </mat-nav-list>

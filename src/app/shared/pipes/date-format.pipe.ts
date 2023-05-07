@@ -12,10 +12,9 @@ export class DateFormatPipe implements PipeTransform {
     if (dateParam.getDay() === currentDate.getDay() && dateParam.getMonth() === currentDate.getMonth()
       && dateParam.getFullYear() === currentDate.getFullYear()) {
       return dateParam.toLocaleTimeString('hu', {timeStyle: "short"});
-    } else if (dateParam.getMonth() === currentDate.getMonth() && dateParam.getFullYear() === currentDate.getFullYear()) {
+    } else if (dateParam.getFullYear() === currentDate.getFullYear()) {
       return dateParam.toLocaleString('hu',{month:'short', day:'numeric'})
     }
     return dateParam.getFullYear().toString();
   }
-
 }
